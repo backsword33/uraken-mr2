@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://backsword33.github.io/uraken-mr2/sitemap.xml
