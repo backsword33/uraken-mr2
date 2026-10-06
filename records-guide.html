@@ -21,6 +21,7 @@
 .guide a{text-underline-offset:4px}
 .guide .return-link{margin:0 0 30px}
 @media(max-width:750px){.guide{padding:38px 0 45px}}
+.counter-policy{max-width:1000px;margin:36px auto;padding:0 22px;line-height:1.9}.counter-policy h2{font-size:1.6rem;line-height:1.5}.counter-policy p{font-size:1rem;line-height:1.9}.access-count{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.65rem;margin:24px 22px 0;font-size:.875rem;color:#bdcbcd}.access-count output{display:inline-block;min-width:6.7ch;padding:.35rem .65rem;background:#08121a;border:1px solid #48616b;border-radius:3px;color:#f4f1e9;font:700 1.1rem/1.3 ui-monospace,Consolas,monospace;font-variant-numeric:tabular-nums;letter-spacing:.12em}.access-count a{font-size:.8rem;text-underline-offset:3px}
 </style>
 </head>
 <body>
@@ -32,7 +33,10 @@
 <section aria-labelledby="reading"><h2 id="reading">戦績表の見方</h2><p>「MR2ワンメイクレース・チャンピオン」は2003年11月13日の大会での優勝を指し、年間シリーズの称号ではありません。「MR2日本一」はその勝利の重みを表す当サイトの言葉です。表の「—」は資料にクラス順位の記載がないことを示します。2003年11月13日の雑誌記事にある「本日のベストタイム」1:02.035は、公式予選1:02.827とは異なる記録として扱い、この表には混ぜていません。18行は大会数ではなく、予選・決勝を分けた記録行数です。</p></section>
 <section id="sources"><h2>資料と表記</h2><p>掲載写真は雑誌記事から車両部分を切り出し、記事の文字を除去しています。背景の一部にAI補完を使用しています。</p><p>戦績は提供された「BACKSWORD_WEBSITE_HANDOFF_2026-10-05」に収録された個人アーカイブの転記です。元資料には公式結果表と雑誌記事が含まれますが、このページでは各行に原本画像を直接公開していません。個々の行の出典確認が必要な場合は、原本との照合を続けます。</p><ul><li>総合順位とクラス順位を分けて表示</li><li>予選・決勝・タイムアタックを区別</li><li>FJ1600および他チームでの耐久参戦は、このMR2戦績には含めない</li></ul></section>
 <p><a class="button" href="./#results">レース戦績へ戻る</a></p>
+<section class="counter-policy" id="access-counter" aria-labelledby="access-counter-heading"><h2 id="access-counter-heading">アクセス数について</h2><p>カウンターは2026年10月7日の設置後から集計しています。GitHub版のBacksword Racing、裏剣MR2、ChatGPT版のBacksword Racingは別々の集計です。同じタブで30分以内に再表示した場合は重複して数えません。人数を厳密に表す数値ではありません。</p><p>集計処理では氏名やIPアドレスを保存せず、合計値と重複確認用の一時的なランダム番号を保存します。一時番号は24時間後、次の集計時に削除します。Cookieは使用しません。JavaScriptが無効な場合や通信を遮断している場合などは集計されません。</p></section>
 </main>
-<footer class="foot"><div class="shell"><span>裏剣MR2 / Personal racing archive · 2000–2004</span><a href="https://backsword33.github.io/">Backsword Racing ↗</a></div></footer>
+<footer class="foot"><div class="shell"><span>裏剣MR2 / Personal racing archive · 2000–2004</span><a href="https://backsword33.github.io/">Backsword Racing ↗</a></div><p class="access-count"><span>累計アクセス</span><output data-access-counter="mr2" aria-live="polite">…</output><a href="records-guide.html#access-counter">集計について</a></p></footer>
+<script src="access-counter.js" defer></script>
 </body>
 </html>
+
