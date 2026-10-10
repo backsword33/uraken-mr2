@@ -13,9 +13,23 @@
     visit = {nonce:crypto.randomUUID(),created:Date.now()};
     try { sessionStorage.setItem(key,JSON.stringify(visit)); } catch {}
   }
+  // Store only the entry's domain and a known site path, never search terms.
+  if (!visit.analytics) {
+    let referrer = '';
+    try {
+      const ref = new URL(document.referrer);
+      if (['http:','https:'].includes(ref.protocol)) {
+        referrer = ref.origin + (ref.hostname === 'backsword33.github.io' && ref.pathname.startsWith('/uraken-mr2/') ? '/uraken-mr2/' : '/');
+      }
+    } catch {}
+    const tag = new URLSearchParams(location.search).get('utm_source');
+    const sourceTag = ['facebook','instagram','x','line','qr','member'].includes(tag) ? tag : '';
+    Object.assign(visit,{analytics:1,referrer,sourceTag,page:location.pathname.endsWith('records-guide.html') ? 'guide' : 'home'});
+    try { sessionStorage.setItem(key,JSON.stringify(visit)); } catch {}
+  }
   async function load() {
     try {
-      const response = await fetch(endpoint,{method:'POST',mode:'cors',credentials:'omit',headers:{'Content-Type':'text/plain'},body:JSON.stringify({nonce:visit.nonce}),signal:AbortSignal.timeout(10000)});
+      const response = await fetch(endpoint,{method:'POST',mode:'cors',credentials:'omit',headers:{'Content-Type':'text/plain'},body:JSON.stringify({nonce:visit.nonce,analytics:visit.analytics,referrer:visit.referrer,sourceTag:visit.sourceTag,page:visit.page}),signal:AbortSignal.timeout(10000)});
       if (!response.ok) throw new Error('Counter unavailable');
       const data = await response.json();
       if (!Number.isSafeInteger(data.count) || data.count < 0) throw new Error('Invalid count');
